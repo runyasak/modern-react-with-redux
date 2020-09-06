@@ -1,7 +1,7 @@
 // Import the React and ReactDOM libraries
-import React from 'react'
-import ReactDOM from 'react-dom'
-import CommentDetail from './CommentDetail'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import CommentDetail from './CommentDetail';
 
 const comments = [
   {
@@ -16,16 +16,14 @@ const comments = [
     date: 'Today at 6:00 PM',
     text: 'Nice blog post!',
   },
-]
+];
 
 // Create a react component
-const App = () => {
-  return (
-    <div className="ui container comments">
-      {comments.map((comment, index) => <CommentDetail key={index} {...comment} />)}
-    </div>
-  )
-}
+const App = () => (
+  <div className="ui container comments">
+    {comments.map((comment, index) => <CommentDetail key={index} {...comment} />)}
+  </div>
+);
 
 // take the react component and show it on the screen
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'));
