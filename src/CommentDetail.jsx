@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ name, avatar, date, text}) => (
+export default ({ name, avatar, date, text }) => (
   <div className="comment">
     <a href="/" className="avatar">
       <img src={avatar} alt="avatar" />
