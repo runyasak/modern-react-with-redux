@@ -16,7 +16,7 @@ export default class App extends React.Component {
     );
   }
 
-  render() {
+  renderContent() {
     const { lat, errorMessage } = this.state;
 
     if (errorMessage) {
@@ -33,5 +33,13 @@ export default class App extends React.Component {
     }
 
     return <Spinner />;
+  }
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    );
   }
 }
