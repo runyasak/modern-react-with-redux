@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({
-  name, avatar, timeAgo, content,
+  author, avatar, timeAgo, content,
 }) => (
   <div className="comment">
     <a href="/" className="avatar">
@@ -9,7 +9,7 @@ export default ({
     </a>
     <div className="content">
       <a href="/" className="author">
-        {name}
+        {author}
       </a>
       <div className="metadata">
         <span className="timeAgo">{timeAgo}</span>

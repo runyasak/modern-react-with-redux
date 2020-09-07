@@ -5,13 +5,13 @@ import CommentDetail from './CommentDetail';
 
 const comments = [
   {
-    name: 'Sam',
+    author: 'Sam',
     avatar: 'https://picsum.photos/60/60',
     timeAgo: 'Today at 6:00 PM',
     content: 'Nice blog post!',
   },
   {
-    name: 'Sarah',
+    author: 'Sarah',
     avatar: 'https://picsum.photos/60/60',
     timeAgo: 'Today at 6:00 PM',
     content: 'Nice blog post!',
