@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const CommentDetail = ({
+export default ({
   name, avatar, date, text,
 }) => (
   <div className="comment">
@@ -19,19 +18,3 @@ const CommentDetail = ({
     </div>
   </div>
 );
-
-CommentDetail.propTypes = {
-  name: PropTypes.string,
-  avatar: PropTypes.string,
-  date: PropTypes.string,
-  text: PropTypes.string,
-};
-
-CommentDetail.defaultProps = {
-  name: '',
-  avatar: '',
-  date: '',
-  text: '',
-};
-
-export default CommentDetail;
