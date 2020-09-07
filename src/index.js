@@ -7,13 +7,13 @@ const comments = [
   {
     name: 'Sam',
     avatar: 'https://picsum.photos/60/60',
-    date: 'Today at 6:00 PM',
+    timeAgo: 'Today at 6:00 PM',
     text: 'Nice blog post!',
   },
   {
     name: 'Sarah',
     avatar: 'https://picsum.photos/60/60',
-    date: 'Today at 6:00 PM',
+    timeAgo: 'Today at 6:00 PM',
     text: 'Nice blog post!',
   },
 ];
