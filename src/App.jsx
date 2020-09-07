@@ -1,5 +1,6 @@
 import React from 'react';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,6 @@ export default class App extends React.Component {
       return <SeasonDisplay lat={lat} />;
     }
 
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 }
