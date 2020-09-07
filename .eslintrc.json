@@ -21,6 +21,7 @@
     "react/no-array-index-key": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/prefer-stateless-function": "off",
     "react/prop-types": "off"
   }
 }
