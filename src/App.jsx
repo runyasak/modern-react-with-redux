@@ -1,4 +1,5 @@
 import React from 'react';
+import SeasonDisplay from './SeasonDisplay';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,12 +28,7 @@ export default class App extends React.Component {
     }
 
     if (lat) {
-      return (
-        <div>
-          Latitude:
-          {lat}
-        </div>
-      );
+      return <SeasonDisplay lat={lat} />;
     }
 
     return <div>Loading...</div>;
