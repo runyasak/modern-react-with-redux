@@ -1,28 +1,27 @@
 import React from 'react';
-import ApprovalCard from './ApprovalCard';
-import CommentDetail from './CommentDetail';
 
-const comments = [
-  {
-    author: 'Sam',
-    avatar: 'https://picsum.photos/60/60',
-    timeAgo: 'Today at 6:00 PM',
-    content: 'Nice blog post!',
-  },
-  {
-    author: 'Sarah',
-    avatar: 'https://picsum.photos/60/60',
-    timeAgo: 'Today at 6:00 PM',
-    content: 'Nice blog post!',
-  },
-];
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default () => (
-  <div className="ui container comments">
-    {comments.map((comment, index) => (
-      <ApprovalCard key={index}>
-        <CommentDetail {...comment} />
-      </ApprovalCard>
-    ))}
-  </div>
-);
+    this.state = { lat: null };
+
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({ lat: position.coords.latitude });
+      },
+      (err) => { throw new Error(err.message); },
+    );
+  }
+
+  render() {
+    const { lat } = this.state;
+
+    return (
+      <div>
+        Latitude:
+        {lat}
+      </div>
+    );
+  }
+}
