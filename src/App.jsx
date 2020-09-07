@@ -32,6 +32,6 @@ export default class App extends React.Component {
       return <SeasonDisplay lat={lat} />;
     }
 
-    return <Spinner />;
+    return <Spinner message="Loading..." />;
   }
 }
