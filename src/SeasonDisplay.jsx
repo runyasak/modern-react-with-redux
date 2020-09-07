@@ -10,14 +10,18 @@ const getSeason = (lat, month) => {
 
 const getDisplayText = (season) => (season === 'winter' ? 'Burr, it is chilly' : 'Lets hit the beach');
 
-export default ({ lat }) => {
+const getIcon = (season) => (season === 'winter' ? 'snowflake icon' : 'sun icon');
+
+const SeasonDisplay = ({ lat }) => {
   const season = getSeason(lat, new Date().getMonth());
 
   return (
     <div>
       Seasion Display
-      {' '}
-      {getDisplayText(season)}
+      <h1>{getDisplayText(season)}</h1>
+      <i className={getIcon(season)} />
     </div>
   );
 };
+
+export default SeasonDisplay;
