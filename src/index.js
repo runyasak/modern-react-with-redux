@@ -1,6 +1,7 @@
 // Import the React and ReactDOM libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ApprovalCard from './ApprovalCard';
 import CommentDetail from './CommentDetail';
 
 const comments = [
@@ -21,7 +22,11 @@ const comments = [
 // Create a react component
 const App = () => (
   <div className="ui container comments">
-    {comments.map((comment, index) => <CommentDetail key={index} {...comment} />)}
+    {comments.map((comment, index) => (
+      <ApprovalCard>
+        <CommentDetail key={index} {...comment} />
+      </ApprovalCard>
+    ))}
   </div>
 );
 
