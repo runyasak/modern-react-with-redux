@@ -20,8 +20,8 @@ const comments = [
 export default () => (
   <div className="ui container comments">
     {comments.map((comment, index) => (
-      <ApprovalCard>
-        <CommentDetail key={index} {...comment} />
+      <ApprovalCard key={index}>
+        <CommentDetail {...comment} />
       </ApprovalCard>
     ))}
   </div>
