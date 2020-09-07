@@ -1,34 +1,6 @@
 // Import the React and ReactDOM libraries
-import React from 'react';
 import ReactDOM from 'react-dom';
-import ApprovalCard from './ApprovalCard';
-import CommentDetail from './CommentDetail';
-
-const comments = [
-  {
-    author: 'Sam',
-    avatar: 'https://picsum.photos/60/60',
-    timeAgo: 'Today at 6:00 PM',
-    content: 'Nice blog post!',
-  },
-  {
-    author: 'Sarah',
-    avatar: 'https://picsum.photos/60/60',
-    timeAgo: 'Today at 6:00 PM',
-    content: 'Nice blog post!',
-  },
-];
-
-// Create a react component
-const App = () => (
-  <div className="ui container comments">
-    {comments.map((comment, index) => (
-      <ApprovalCard>
-        <CommentDetail key={index} {...comment} />
-      </ApprovalCard>
-    ))}
-  </div>
-);
+import App from './App';
 
 // take the react component and show it on the screen
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(App(), document.getElementById('root'));
