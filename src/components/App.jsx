@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 
 const App = () => (
-  <div>
+  <div className="ui container" style={{ padding: '16px' }}>
     <SearchBar />
   </div>
 );
