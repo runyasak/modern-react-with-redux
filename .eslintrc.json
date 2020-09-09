@@ -16,11 +16,16 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "parser": "babel-eslint",
   "plugins": ["react"],
   "rules": {
+    "class-methods-use-this": "off",
+    "react/destructuring-assignment": "off",
     "react/no-array-index-key": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/prefer-stateless-function": "off",
     "react/prop-types": "off"
   }
 }
