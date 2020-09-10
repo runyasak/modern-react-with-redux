@@ -1,21 +1,27 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import { searchImages } from '../providers/unsplash';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchResult: '' };
+    this.state = { images: [] };
   }
 
-  onSearchSubmit = (searchResult) => {
-    this.setState({ searchResult });
+  onSearchSubmit = async (searchResult) => {
+    const response = await searchImages(searchResult);
+    this.setState({ images: this.mapResults(response) });
+  }
+
+  mapResults(data) {
+    return data.results;
   }
 
   render() {
     return (
       <div className="ui container" style={{ padding: '16px' }}>
-        Search result: {this.state.searchResult}
         <SearchBar onSubmit={this.onSearchSubmit} />
+        Found: {this.state.images.length}
       </div>
     );
   }
