@@ -4,29 +4,30 @@ import React from 'react';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { term: 'Hi there!' };
+    this.state = { term: '' };
+  }
+
+  onInputChange = (event) => {
+    this.setState({ term: event.target.value });
   }
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
-    this.props.onSubmit(this.state.term);
+    this.props.onFormSubmit(this.state.term);
   }
 
   render() {
-    const { term } = this.state;
-
     return (
       <div className="ui segment">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label htmlFor="text">
-              Image Search
+              Video Seearch
               <input
                 id="text"
                 type="text"
-                value={term}
-                onChange={(e) => this.setState({ term: e.target.value })}
+                value={this.state.term}
+                onChange={this.onInputChange}
               />
             </label>
           </div>
