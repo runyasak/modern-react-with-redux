@@ -10,9 +10,13 @@ class App extends Component {
     this.state = { videos: [], selectedVideo: undefined };
   }
 
+  componentDidMount() {
+    this.onTermSubmit('buildings');
+  }
+
   onTermSubmit = async (term) => {
     const { items: videos } = await searchVideos({ q: term });
-    this.setState({ videos });
+    this.setState({ videos, selectedVideo: videos[0] });
   }
 
   onVideoSelect = (video) => {
