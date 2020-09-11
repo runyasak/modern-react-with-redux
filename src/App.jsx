@@ -16,4 +16,9 @@ const items = [
   },
 ];
 
-export default () => <div><Accordion items={items} /></div>;
+export default () => (
+  <div>
+    <br />
+    <Accordion items={items} />
+  </div>
+);
