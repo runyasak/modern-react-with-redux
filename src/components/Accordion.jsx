@@ -1,24 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
-const onTitleClick = (index) => {
-  console.log('Title Clicked', index);
+const Accordion = ({ items }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const onTitleClick = (index) => {
+    setActiveIndex(index);
+  };
+
+  const renderedItems = (valueItems) => valueItems.map((value, index) => (
+    <Fragment key={value.title}>
+      <div
+        className="title active"
+        onClick={() => onTitleClick(index)}
+      >
+        <i className="dropdown icon" />
+        {value.title}
+      </div>
+      <div className="content active">
+        <p>{value.content}</p>
+      </div>
+    </Fragment>
+  ));
+
+  return (
+    <div className="ui styled accordion">
+      {renderedItems(items)}
+      <h1>{activeIndex}</h1>
+    </div>
+  );
 };
-
-const renderedItems = (items) => items.map((item, index) => (
-  <Fragment key={item.title}>
-    <div
-      className="title active"
-      onClick={() => onTitleClick(index)}
-    >
-      <i className="dropdown icon" />
-      {item.title}
-    </div>
-    <div className="content active">
-      <p>{item.content}</p>
-    </div>
-  </Fragment>
-));
-
-const Accordion = ({ items }) => <div className="ui styled accordion">{renderedItems(items)}</div>;
-
 export default Accordion;
