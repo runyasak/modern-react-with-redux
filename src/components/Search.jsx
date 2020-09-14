@@ -4,31 +4,32 @@ import { searchWiki } from '../providers/wikipedia';
 
 const Search = () => {
   const [term, setTerm] = useState('programming');
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    const search = async () => {
-      const searchResults = await searchWiki(term);
-
-      setResults(searchResults.query.search);
-    };
-
-    let timeoutId;
-
-    if (term && !results.length) {
-      search();
-    } else {
-      timeoutId = setTimeout(() => {
-        if (term) {
-          search();
-        }
-      }, 500);
-    }
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 500);
 
     return () => {
-      clearTimeout(timeoutId);
+      clearTimeout(timerId);
     };
   }, [term]);
+
+  useEffect(() => {
+    const search = async () => {
+      const searchResults = await searchWiki(debouncedTerm);
+
+      if (!searchResults.query || !searchResults.query.search) {
+        setResults([]);
+      } else {
+        setResults(searchResults.query.search);
+      }
+    };
+
+    search();
+  }, [debouncedTerm]);
 
   const renderedResults = results.map((result) => (
     <div key={result.pageid} className="item">
