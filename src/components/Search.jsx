@@ -13,11 +13,17 @@ const Search = () => {
       setResults(searchResults.query.search);
     };
 
-    const timeoutId = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500);
+    let timeoutId;
+
+    if (term && !results.length) {
+      search();
+    } else {
+      timeoutId = setTimeout(() => {
+        if (term) {
+          search();
+        }
+      }, 500);
+    }
 
     return () => {
       clearTimeout(timeoutId);
