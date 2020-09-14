@@ -1,8 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    document.body.addEventListener('click', (event) => {
+      if (!ref.current.contains(event.target)) {
+        setOpen(false);
+      }
+    });
+  }, []);
 
   const renderedOptions = options
     .filter((option) => option.value !== selected.value)
@@ -20,7 +29,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const visibleTransitionClasses = open ? 'visible transition' : '';
 
   return (
-    <div className="ui form">
+    <div ref={ref} className="ui form">
       <div className="field">
         <label htmlFor="dropdown" className="label">
           Select a Color
