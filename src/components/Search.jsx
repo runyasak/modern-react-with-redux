@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
 import { searchWiki } from '../providers/wikipedia';
 
@@ -12,9 +13,15 @@ const Search = () => {
       setResults(searchResults.query.search);
     };
 
-    if (term) {
-      search();
-    }
+    const timeoutId = setTimeout(() => {
+      if (term) {
+        search();
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [term]);
 
   const renderedResults = results.map((result) => (
