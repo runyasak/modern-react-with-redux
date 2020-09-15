@@ -22,6 +22,7 @@ const Translate = () => {
   return (
     <div>
       <Dropdown
+        label="Select a language"
         options={options}
         selected={language}
         onSelectedChange={setLanguage}
