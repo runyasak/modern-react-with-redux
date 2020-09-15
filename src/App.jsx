@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import Accordion from './components/Accordion';
-import Dropdown from './components/Dropdown';
+// import Dropdown from './components/Dropdown';
 // import Search from './components/Search';
+import Translate from './components/Translate';
 
 // const items = [
 //   {
@@ -18,28 +19,30 @@ import Dropdown from './components/Dropdown';
 //   },
 // ];
 
-const options = [
-  {
-    label: 'The Color Red',
-    value: 'red',
-  },
-  {
-    label: 'The Color Green',
-    value: 'green',
-  },
-  {
-    label: 'A Shade of Blue',
-    value: 'blue',
-  },
-];
+// const options = [
+//   {
+//     label: 'The Color Red',
+//     value: 'red',
+//   },
+//   {
+//     label: 'The Color Green',
+//     value: 'green',
+//   },
+//   {
+//     label: 'A Shade of Blue',
+//     value: 'blue',
+//   },
+// ];
 
+// eslint-disable-next-line arrow-body-style
 export default () => {
-  const [selected, setSelected] = useState(options[0]);
-  const [showDropdown, setShowDropdown] = useState(true);
+  // const [selected, setSelected] = useState(options[0]);
+  // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div>
-      <button
+      <Translate />
+      {/* <button
         onClick={() => setShowDropdown(!showDropdown)}
         type="button"
       >
@@ -51,7 +54,7 @@ export default () => {
           onSelectedChange={setSelected}
           options={options}
         />
-      ) : undefined}
+      ) : undefined} */}
     </div>
   );
 };
